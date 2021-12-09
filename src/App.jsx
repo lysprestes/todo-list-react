@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Header from './components/Header';
-import Tasks from './components/Tasks';
-import AddTask from './components/AddTask';
-import TaskDetails from './components/TaskDetails';
+import Header from "./components/Header";
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+import TaskDetails from "./components/TaskDetails";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
 	const [tasks, setTasks] = useState([]);
@@ -35,7 +35,7 @@ const App = () => {
 		setTasks(newTasks);
 	};
 
-	const handleAddTask = (taskTitle) => {
+	const handleTaskAddition = (taskTitle) => {
 		const newTasks = [
 			...tasks,
 			{
@@ -48,7 +48,7 @@ const App = () => {
 		setTasks(newTasks);
 	};
 
-	const handleDeleteTask = (taskId) => {
+	const handleTaskDeletion = (taskId) => {
 		const newTasks = tasks.filter((task) => task.id !== taskId);
 
 		setTasks(newTasks);
@@ -63,11 +63,11 @@ const App = () => {
 					exact
 					render={() => (
 						<>
-							<AddTask handleAddTask={handleAddTask} />
+							<AddTask handleTaskAddition={handleTaskAddition} />
 							<Tasks
 								tasks={tasks}
 								handleTaskClick={handleTaskClick}
-								handleDeleteTask={handleDeleteTask}
+								handleTaskDeletion={handleTaskDeletion}
 							/>
 						</>
 					)}

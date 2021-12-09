@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Task from './Task';
+import Task from "./Task";
 
-const Tasks = ({ tasks, handleTaskClick, handleDeleteTask }) => {
+const Tasks = ({ tasks, handleTaskClick, handleTaskDeletion }) => {
 	return (
 		<>
 			{tasks.map((task) => (
@@ -10,11 +10,11 @@ const Tasks = ({ tasks, handleTaskClick, handleDeleteTask }) => {
 					key={task.id}
 					task={task}
 					handleTaskClick={handleTaskClick}
-					handleDeleteTask={handleDeleteTask}
+					handleTaskDeletion={handleTaskDeletion}
 				/>
 			))}
 		</>
 	);
-}
+};
 
 export default Tasks;

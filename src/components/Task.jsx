@@ -1,10 +1,10 @@
-import React from 'react';
-import { CgClose, CgInfo } from 'react-icons/cg';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { CgClose, CgInfo } from "react-icons/cg";
+import { useHistory } from "react-router-dom";
 
-import './Task.css';
+import "./Task.css";
 
-const Task = ({ task, handleTaskClick, handleDeleteTask }) => {
+const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
 	const history = useHistory();
 
 	const handleTaskDetailsClick = () => {
@@ -14,15 +14,16 @@ const Task = ({ task, handleTaskClick, handleDeleteTask }) => {
 	return (
 		<div
 			className="task-container"
-			style={task.completed ? { borderLeft: '6px solid chartreuse' } : {}}
+			style={task.completed ? { borderLeft: "6px solid chartreuse" } : {}}
 		>
 			<div className="task-title" onClick={() => handleTaskClick(task.id)}>
 				{task.title}
 			</div>
+
 			<div className="buttons-container">
 				<button
 					className="remove-task-button"
-					onClick={() => handleDeleteTask(task.id)}
+					onClick={() => handleTaskDeletion(task.id)}
 				>
 					<CgClose />
 				</button>
@@ -35,6 +36,6 @@ const Task = ({ task, handleTaskClick, handleDeleteTask }) => {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Task;
